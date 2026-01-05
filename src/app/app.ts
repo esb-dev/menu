@@ -10,9 +10,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
 export class App {
   formatMenu = viewChild<Menu<string>>('formatMenu');
 
-  onSelect(x: string) {
-    console.log(x);
-    alert('x');
+  onSelect(value: string) {
+    console.log(value);
+    alert('value');
   }
 }
 
