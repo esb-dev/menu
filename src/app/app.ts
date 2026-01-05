@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { Component, viewChild } from '@angular/core';
+import { Menu, MenuContent, MenuItem, MenuTrigger } from '@angular/aria/menu';
+import { OverlayModule } from '@angular/cdk/overlay';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  templateUrl: 'app.html',
+  styleUrl: 'app.css',
+  imports: [Menu, MenuContent, MenuItem, MenuTrigger, OverlayModule],
 })
 export class App {
-  protected readonly title = signal('menu');
+  formatMenu = viewChild<Menu<string>>('formatMenu');
+
+  onSelect(x: string) {
+    console.log(x);
+    alert('x');
+  }
 }
+
